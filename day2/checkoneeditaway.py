@@ -25,5 +25,3 @@ if (count > 1):
 else: 
     print("True")
 
-
-
