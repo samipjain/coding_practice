@@ -22,6 +22,9 @@ def rotateMatrix(mat, N):
             mat[N-1-y][x] = temp
     print(mat)
 
+def rotateMatrixClockwise(mat, N):
+    
+    print(mat)
 
 mat = [
     [1,2,3],
@@ -32,3 +35,4 @@ mat = [
 N = 3
 print(mat)
 rotateMatrix(mat, N)
+rotateMatrixClockwise(mat, N)
