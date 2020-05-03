@@ -72,6 +72,32 @@ class LinkedList:
         prev.next = temp.next
         temp = None
 
+    def deleteNodeAtPos(self, pos):
+        if self.head == None:
+            return
+        
+        temp = self.head
+
+        if pos == 0:
+            self.head = temp.next
+            temp = None
+            return
+        
+        for i in range(pos-1):
+            temp = temp.next
+            if temp is None:
+                break
+
+        if temp is None:
+            return
+        if temp.next is None:
+            return
+
+        next = temp.next.next
+        temp.next = None
+        temp.next = next
+        return
+
 if __name__ == "__main__":
     llist = LinkedList()
 
@@ -94,4 +120,7 @@ if __name__ == "__main__":
     llist.deleteNode(9)
     llist.deleteNode(7)
     llist.deleteNode(8)
+
+    llist.deleteNodeAtPos(2)
+    llist.deleteNodeAtPos(0)
     llist.printList()
