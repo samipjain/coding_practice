@@ -21,6 +21,8 @@ class LinkedList:
         last.next = new_node
 
     def oddEvenList(self):
+        if(self.head is None or self.head.next is None):
+            return self
         odd = self.head
         even = self.head.next
         evenHead = even
