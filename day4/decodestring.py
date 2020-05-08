@@ -20,5 +20,5 @@ def decodeString(s):
     return res
         
 if __name__ == "__main__":
-    expr = "3[a2[c]]"
+    expr = "3[a]2[c]"
     print(decodeString(expr))
