@@ -1,28 +1,11 @@
-class Stack:
-    def __init__(self):
-        self.stack = []
-    
-    def put(self, x):
-        self.stack.append(x)
-    
-    def get(self):
-        if len(self.stack) < 0:
-            return None
-        return self.stack.pop(-1)
-    
-    def empty(self):
-        return self.stack == []
-    
-    def print(self):
-        print(self.stack)
-
 class MyQueue(object):
 
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        
+        self.s1 = []
+        self.s2 = []
 
     def push(self, x):
         """
@@ -30,31 +13,41 @@ class MyQueue(object):
         :type x: int
         :rtype: None
         """
-        
+        while self.s1:
+            self.s2.append(self.s1.pop())
+        self.s1.append(x)
+        while self.s2:
+            self.s1.append(self.s2.pop())
 
     def pop(self):
         """
         Removes the element from in front of queue and returns that element.
         :rtype: int
         """
-        
+        return self.s1.pop()
 
     def peek(self):
         """
         Get the front element.
         :rtype: int
         """
-        
+        return self.s1[-1]
 
     def empty(self):
         """
         Returns whether the queue is empty.
         :rtype: bool
         """
+        return not self.s1
 
 if __name__ == "__main__":
     obj = MyQueue()
-    obj.push(x)
+    obj.push(1)
+    obj.push(2)
+    obj.push(3)
     param_2 = obj.pop()
+    print(param_2)
     param_3 = obj.peek()
+    print(param_3)
     param_4 = obj.empty()
+    print(param_4)
