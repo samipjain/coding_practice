@@ -7,21 +7,21 @@ class Node:
 
 def printPreorder(root):
     if (root):
-        print(root.val),
+        print(root.val)
         printPreorder(root.left)
         printPreorder(root.right)
 
 def printInorder(root):
     if (root):
         printInorder(root.left)
-        print(root.val),
+        print(root.val)
         printInorder(root.right)
 
 def printPostorder(root):
     if (root):
         printPostorder(root.left)
         printPostorder(root.right)
-        print(root.val),
+        print(root.val)
 
 if __name__ == "__main__":
     root = Node(1)
