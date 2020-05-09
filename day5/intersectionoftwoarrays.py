@@ -1,14 +1,19 @@
 def intersection(nums1, nums2):
     result = []
-    for i in nums1:
-        for j in nums2:
-            if i == j:
-                if i not in result:
-                    result.append(i)
+    if len(nums1) < len(nums2):
+        smallestArray = nums1
+        largeArray = nums2
+    else:
+        smallestArray = nums2
+        largeArray = nums1
 
+    for i in smallestArray:
+        if i in largeArray:
+            if i not in result:
+                result.append(i)
     return result
-
+    
 if __name__ == "__main__":
-    nums1 = [4,9,5]
-    nums2 = [9,4,9,8,4]
+    nums1 = [2,6,2,9,1]
+    nums2 = [7,1]
     print(intersection(nums1, nums2))
