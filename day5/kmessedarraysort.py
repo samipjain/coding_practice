@@ -6,9 +6,6 @@ Analyze the time and space complexities of your solution
 def sort_k_messed_array(arr, k):
   for i in range(0, len(arr)-1):
     for j in range(1, k+1):
-    #   print("i", i)
-    #   print("j", j)
-    #   print("arr[i+j] ",arr[i+j])  
       if i+j < len(arr):
         if arr[i] > arr[i+j]:
             temp = arr[i]
