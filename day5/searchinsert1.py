@@ -10,5 +10,5 @@ def searchinsert(nums, target):
 
 if __name__ == "__main__":
     arr = [1,3,5,6]
-    target = 5
+    target = 7
     print(searchinsert(arr, target))
