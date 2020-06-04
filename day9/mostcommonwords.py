@@ -19,7 +19,9 @@ def most_common_words(text):
             result[word] += 1
         else:
             result[word] = 1
-    return result
+    
+    words = sorted(result.items())
+    return sorted(words, reverse=True, key=lambda x: x[1])
 
 if __name__ == "__main__":
     text = "It was the best of times, it was the worst of times."
