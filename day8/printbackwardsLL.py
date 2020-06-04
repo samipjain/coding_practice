@@ -36,6 +36,22 @@ class LinkedList:
         
         while(result):
             print(result.pop())
+    
+    def printBackwards2(self):
+        prev = None
+        p = self.head
+        n = self.head
+
+        while (n is not None):
+            n = n.next
+            p.next = prev
+            prev = p
+            p = n
+        
+        while prev:
+            print(prev.val)
+            prev = prev.next
+        
 
 if __name__ == "__main__":
     ll = LinkedList()
@@ -44,4 +60,6 @@ if __name__ == "__main__":
     ll.add(3)
     ll.add(4)
     ll.printList()
-    ll.printBackwards()
+    ll.printBackwards2()
+    ll.printBackwards3()
+    # ll.printList()
