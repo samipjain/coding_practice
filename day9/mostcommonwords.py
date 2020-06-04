@@ -20,6 +20,7 @@ def most_common_words(text):
         else:
             result[word] = 1
     
+    #sorted alphabetically and then sort by count
     words = sorted(result.items())
     return sorted(words, reverse=True, key=lambda x: x[1])
 
