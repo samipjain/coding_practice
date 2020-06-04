@@ -20,9 +20,22 @@ def diff(arrA, arrB):
             output.append(b)
     return output
 
+def diff_set(arrA, arrB):
+    if arrA is None and arrB is None: 
+        return
+    elif arrA is None and arrB is not None:
+        return arrB
+    elif arrA is not None and arrB is None:
+        return arrA
+
+    setA = set(arrA)
+    setB = set(arrB)
+
+    return list(setA ^ setB)
+
 if __name__ == "__main__":
-    # arrA = [1,2,3,4]
-    # arrB = [3,4,5,6]
-    arrA = [1,2,1]
-    arrB = [2,1,2]
-    print(diff(arrA, arrB))
+    arrA = [1,2,3,4]
+    arrB = [3,4,5,6]
+    # arrA = [1,2,1]
+    # arrB = [2,1,2]
+    print(diff_set(arrA, arrB))
