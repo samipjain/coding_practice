@@ -8,8 +8,7 @@ class Graph:
         self.graph[dest].append(src)
 
     def print_graph(self):
-        for i in range(self.V):
-            print(i, "->", self.graph[i])
+        print(self.graph)
 
 if __name__ == "__main__":
     graph = Graph(4)
