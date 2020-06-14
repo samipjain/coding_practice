@@ -1,0 +1,14 @@
+<h2>{{title}}</h2>
+
+
+<input type="text" name="query" [(ngModel)]="query" />
+<button type="button" (click)="submitForm()">submit</button>
+<button type="button" (click)="submitFocus()">focus</button>
+<ul>
+  <li *ngFor="let l of list" [ngClass]="l.highlight ? (l.strong_highlight ? 'highlight strong' : 'highlight') : ''">{{l.name}}
+    <ul *ngIf="l.children.length != 0">
+      <li *ngFor="let lc of l.children" [ngClass]="lc.highlight ? (lc.strong_highlight ? 'highlight strong' : 'highlight') : ''">{{lc.name}}</li>
+    </ul>
+  </li>
+
+</ul>
