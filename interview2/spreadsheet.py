@@ -1,3 +1,8 @@
+'''
+Given a spreadsheet, each cell can have two types of values - 1) a number 2) a formula
+How will you evaluate the value of spreadsheet and create a function to pass the final value
+'''
+
 class Spreadsheet:
     def __init__(self, rows, cols):
         self.arr = [[0 for i in range(cols)] for j in range(rows)]
