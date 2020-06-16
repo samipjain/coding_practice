@@ -6,6 +6,7 @@ How will you evaluate the value of spreadsheet and create a function to pass the
 class Spreadsheet:
     def __init__(self):
         self.sheet_dict = {}
+        self.values = {}
 
     def updateSheet(self, cell, value):
         self.sheet_dict[cell] = value
@@ -20,12 +21,13 @@ class Spreadsheet:
 
             for char in val:
                 if char in symbols_arr:
-                    eval_string = eval_string + str(self.sheet_dict[result])
+                    eval_string = eval_string + str(self.values[result])
                     eval_string = eval_string + char
                     result = ''
                 else:
                     result = result + char
-            eval_string = eval_string + str(self.sheet_dict[result])
+            eval_string = eval_string + str(self.values[result])
+            # print(eval_string)
             return eval(eval_string)
 
     def print(self):
@@ -33,7 +35,10 @@ class Spreadsheet:
 
     def printValues(self):
         for key, val in self.sheet_dict.items():
-            print(key, ": ", self.evaluate(val))
+            eval_value = self.evaluate(val)
+            self.values[key] = eval_value
+        
+        print(self.values)
 
 if __name__ == "__main__":
     ss = Spreadsheet()
@@ -49,5 +54,17 @@ if __name__ == "__main__":
     ss.updateSheet('B4', 'A4*A4')
     ss.updateSheet('B5', 'A5*A5')
 
+    ss.updateSheet('C1', 'A1+B1*A1')
+    ss.updateSheet('C2', 'A2+B2*A2')
+    ss.updateSheet('C3', 'A3+B3*A3')
+    ss.updateSheet('C4', 'A4+B4*A4')
+    ss.updateSheet('C5', 'A5+B5*A5')
+
+    ss.updateSheet('D1', 'C1+A1')
+    ss.updateSheet('D2', 'C2+A2')
+    ss.updateSheet('D3', 'C3+A3')
+    ss.updateSheet('D4', 'C4+A4')
+    ss.updateSheet('D5', 'C5+A5')
+    
     ss.print()
     ss.printValues()
