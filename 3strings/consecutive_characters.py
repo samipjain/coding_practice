@@ -27,9 +27,34 @@ def maxPower(s):
             
     return 1 if len(result) == 0 else max(result)
 
+def maxPower(s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    char_dict = {}
+    count = 0
+    
+    for char in s:
+        if char in char_dict:
+            char_dict[char] += 1
+            count = max(count, char_dict[char])
+        else:
+            char_dict.clear()
+            char_dict[char] = 1
+    if count == 0:
+        return 1
+    return count
+
 if __name__ == "__main__":
     print(maxPower('leetcode'))
     print(maxPower('abbcccddddeeeeedcba'))
     print(maxPower('a'))
     print(maxPower('aa'))
     print(maxPower('bbaaa'))
+
+    print(maxPower2('leetcode'))
+    print(maxPower2('abbcccddddeeeeedcba'))
+    print(maxPower2('a'))
+    print(maxPower2('aa'))
+    print(maxPower2('bbaaa'))
