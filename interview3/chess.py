@@ -1,6 +1,4 @@
 def sortChessSubsquares(numbers, queries):
-    rows = len(numbers)-1
-    cols = len(numbers[0])-1
     # if sum of x and y is even, then that square is black, else white
     for query in queries:
         black_squares = []
