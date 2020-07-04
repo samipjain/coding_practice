@@ -8,5 +8,14 @@ def allSubarrays(nums):
             result.append(nums[i:j])
     return max_sum
 
+def allSubarraysDP(nums):
+    result = []
+    result.append(nums[0])
+    
+    for i in range(1, len(nums)):
+        result.append(max(nums[i], nums[i]+result[-1]))
+    return max(result)
+
 if __name__ == "__main__":
-    print(allSubarrays([2,1,-3,4,-1,2,1,-5,4]))
+    # print(allSubarraysDP([-2,1,-3,4,-1,2,1,-5,4]))
+    print(allSubarraysDP([-1,4,-3,5]))
