@@ -9,13 +9,15 @@ def allSubarrays(nums):
     return max_sum
 
 def allSubarraysDP(nums):
-    result = []
-    result.append(nums[0])
+    curr_sum = nums[0]
+    result = -9999
     
     for i in range(1, len(nums)):
-        result.append(max(nums[i], nums[i]+result[-1]))
-    return max(result)
+        curr_sum = max(nums[i], nums[i]+curr_sum)
+        result = max(curr_sum, result)
+    return result
 
 if __name__ == "__main__":
-    # print(allSubarraysDP([-2,1,-3,4,-1,2,1,-5,4]))
+    print(allSubarraysDP([-2,1,-3,4,-1,2,1,-5,4]))
     print(allSubarraysDP([-1,4,-3,5]))
+    print(allSubarraysDP([-2,-1]))
