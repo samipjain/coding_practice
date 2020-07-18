@@ -24,6 +24,9 @@ def isPossible(a, b, c, d):
             if data[0] == c and data[1] == d:
                 return "Yes"
             
+            if data[0] > c or data[1] > d:
+                return "No"
+            
             new_candidates.append((data[0]+data[1], data[1]))
             new_candidates.append((data[0], data[0]+data[1]))
         candidates = new_candidates
@@ -31,4 +34,4 @@ def isPossible(a, b, c, d):
     return "No"
 
 if __name__ == "__main__":
-    print(isPossible(1,1,3,3))
+    print(isPossible(1,1,1000,1000))
