@@ -6,10 +6,7 @@ def isPalindrome(s):
         last = s[len(s)-1]
         middle = s[1:len(s)-2]
 
-        if first == last and isPalindrome(middle):
-            return True
-        else:
-            return False
+        return first == last and isPalindrome(middle)
 
 if __name__ == "__main__":
     print(isPalindrome('raar'))
