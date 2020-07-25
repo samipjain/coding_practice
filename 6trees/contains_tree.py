@@ -11,6 +11,18 @@ class Tree:
             if self.contains(root.left, value) or self.contains(root.right, value):
                 return True
         return False
+    
+    # Faster
+    def containsBST(self, root, value):
+        if root != None:
+            if root.val == value:
+                return True
+            elif value < root.val:
+                return self.contains(root.left, value)
+            else:
+                return self.contains(root.right, value)
+        return False
+
          
 if __name__ == "__main__":
     root = Tree(10)
@@ -20,3 +32,5 @@ if __name__ == "__main__":
     root.left.right = Tree(8)
 
     print(root.contains(root, 8))
+
+    print(root.containsBST(root, 18))
