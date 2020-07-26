@@ -2,19 +2,24 @@ from collections import defaultdict
 
 class Graph:
     def __init__(self):
+        self.V = []
         self.graph = defaultdict(list)
 
     def addEdge(self, v, w):
+        if v not in self.V:
+            self.V.append(v)
+        if w not in self.V:
+            self.V.append(w)
         self.graph[v].append(w)
 
     def printGraph(self):
         print(self.graph)
 
     def getVertices(self):
-        return [i for i in self.graph.keys()]
+        return self.V
 
     def getEdges(self):
-        return [edge for edge in self.graph.values()]
+        return [self.graph[v] for v in self.V]
     
 if __name__ == "__main__":
     g = Graph()
@@ -32,3 +37,23 @@ if __name__ == "__main__":
 
     print(V)
     print(E)
+
+    g2 = Graph()
+    g2.addEdge("Samip", "Prafull")
+    g2.addEdge("Samip", "Abhishek")
+    g2.addEdge("Prafull", "Abhishek")
+    g2.addEdge("Prafull", "Samip")
+    g2.addEdge("Abhishek", "Phillip")
+    g2.addEdge("Abhishek", "Samip")
+    g2.addEdge("Abhishek", "Sarah")
+    g2.addEdge("Phillip", "Abhishek")
+    g2.addEdge("Sarah", "Ashley")
+    g2.addEdge("Sarah", "Abhishek")
+    g2.addEdge("Ashley", "Sarah")
+
+    V2 = g2.getVertices()
+    E2 = g2.getEdges()
+    g2.printGraph()
+
+    print(V2)
+    print(E2)
