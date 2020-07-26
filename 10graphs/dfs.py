@@ -18,7 +18,7 @@ class Graph:
 
     def DFSUtil(self, s, visited):
         visited[s] = True
-        # print(s)
+        print(s)
 
         for i in self.graph[s]:
             if not visited[i]:
@@ -30,7 +30,6 @@ class Graph:
             visited[i] = False
         
         for v in self.graph.keys():
-            print(v)
             if not visited[v]:
                 self.DFSUtil(v, visited)
 
