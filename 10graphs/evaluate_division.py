@@ -27,22 +27,28 @@ class Graph:
     def getEdges(self):
         return [self.graph[v] for v in self.V]
     
-    def getWeight(self, src, dst):
-        # print("src", src, "dest", dst)
-        queue = []
-        queue.append(src)
-        result = 1
+    def getWeightUtil(self, v, d, visited, result):
+        print("src: ", v, "dst: ", d)
+        print("result", result)
+        visited[v] = True
 
-        while queue:
-            curr = queue.pop(0)
-            if curr in self.graph:
-                for adj in self.graph[curr]:
-                    queue.append(adj[0])
-                    print("resutl", adj[0], adj[1])
-                    result = result * adj[1]
-                    if adj[0] == dst:
-                        break
-                        
+        if v == d:
+            return result
+        else:
+            for n in self.graph[v]:
+                if not visited[n[0]]:
+                    result = result * n[1]
+                    return self.getWeightUtil(n[0], d, visited, result)
+
+    def getWeight(self, src, dst):
+        visited = defaultdict()
+        result = 1
+        for vertex in self.V:
+            visited[vertex] = False
+
+        
+        if not visited[src]:
+            result = self.getWeightUtil(src, dst, visited, result)
         return result
 
 
@@ -51,7 +57,7 @@ class Graph:
         
         self.addWeightedEdges(equations, values)
 
-        for i, query in enumerate(queries):
+        for i, query in enumerate(queries): 
             if query[0] == query[1]:
                 answer[i] = -1.0 if query[0] not in self.V else 1.0
             elif query[0] not in self.V or query[1] not in self.V:
@@ -64,10 +70,15 @@ class Graph:
 if __name__ == "__main__":
     g = Graph()
 
-    equations = [ ["a", "b"], ["b", "c"] ]
-    values = [2.0, 3.0]
+    # equations = [ ["a", "b"], ["b", "c"] ]
+    # values = [2.0, 3.0]
     # queries = [ ["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"] ]
-    queries = [ ["a", "c"] ]
+
+    equations = [["x1","x2"],["x2","x3"],["x3","x4"],["x4","x5"]]
+    values = [3.0,4.0,5.0,6.0]
+    # queries = [["x1","x5"],["x5","x2"],["x2","x4"],["x2","x2"],["x2","x9"],["x9","x9"]]
+    queries = [["x2", "x4"]]
+    
 
     print(g.calcEquation(equations, values, queries))
     
