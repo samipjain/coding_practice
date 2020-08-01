@@ -19,4 +19,10 @@ def sumDigitsUtil(n, sum):
     digit = n//10
     return sumDigitsUtil(digit, sum)
 
+def sumDigits2(n):
+    if n == 0:
+        return 0
+    return n%10 + sumDigits2(n//10)
+
 print(sumDigits(23456))
+print(sumDigits2(234))
