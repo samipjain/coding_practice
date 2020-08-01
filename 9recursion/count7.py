@@ -20,5 +20,15 @@ def count7Util(n, count):
         count += 1 
     return count7Util(n//10, count)
 
+def count7_2(n):
+    if n == 0:
+        return 0
+    if n%10 == 7:
+        return 1 + count7_2(n//10)
+    else:
+        return count7_2(n//10)
+
+
 print(count7(107))
+print(count7_2(7877))
 
