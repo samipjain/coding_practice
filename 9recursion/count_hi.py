@@ -15,9 +15,6 @@ def counthi(a):
     if a[0] == 'h':
         if len(a) != 1 and a[1] == 'i':
             return 1 + counthi(a[2:])
-        else:
-            return counthi(a[1:])
-    else:
-        return counthi(a[1:])
-
-print(counthi('ihxhixhiasxhih'))
+    return counthi(a[1:])
+    
+print(counthi('ihxhixhiasxhihi'))
