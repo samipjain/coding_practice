@@ -22,7 +22,10 @@ class Tree:
                 count -= 1
             print(' ')
             result.append(resstack)
+        
+        # return [result[l] for l in range(len(result)-1, -1, -1)]
         result.reverse()
+
         return result
     
 
