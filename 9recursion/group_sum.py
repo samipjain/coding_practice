@@ -11,3 +11,17 @@ groupSum(0, [2, 4, 8], 10) → true
 groupSum(0, [2, 4, 8], 14) → true
 groupSum(0, [2, 4, 8], 9) → false
 '''
+
+def groupSum(start, nums, target):
+    print("start ", start, "nums ", nums, "target ", target)
+    if start >= len(nums):
+        return target==0
+    if groupSum(start+1, nums, target-nums[start]):
+        return True
+    if groupSum(start+1, nums, target):
+        return True
+    return False
+
+print(groupSum(0, [2, 4, 8], 10))
+print(groupSum(0, [2, 4, 8], 14))
+print(groupSum(0, [2, 4, 8], 9))
