@@ -16,13 +16,13 @@ sequence can be -
 '''
 PAD = {
     "1": ['a', 'b'],
-    "2": ['c', 'd']
+    "2": ['c', 'd'],
+    "12": ['x']
 }
 
 def getWords(seq):
     result = []
     return getWordsUtil(seq, result)
-    # return result
 
 def getWordsUtil(seq, result):
     if seq == '':
