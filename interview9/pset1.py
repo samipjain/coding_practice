@@ -35,12 +35,8 @@ def getWordsUtil(seq, result):
 def findWords(arr1, arr2):
     if len(arr2) == 0:
         return arr1
-    else:
-        result = []
-        for i in arr2:
-            for j in arr1:
-                result.append(i+j)
-    return result
+    
+    return [i+j for i in arr2 for j in arr1]
 
 if __name__ == "__main__":
     print(getWords(''))
