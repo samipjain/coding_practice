@@ -21,8 +21,8 @@ PAD = {
 
 def getWords(seq):
     result = []
-    result = getWordsUtil(seq, result)
-    return result
+    return getWordsUtil(seq, result)
+    # return result
 
 def getWordsUtil(seq, result):
     if seq == '':
